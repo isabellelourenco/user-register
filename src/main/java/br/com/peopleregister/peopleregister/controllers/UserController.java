@@ -1,9 +1,9 @@
-package controllers;
+package br.com.peopleregister.peopleregister.controllers;
 
-import models.User;
+import br.com.peopleregister.peopleregister.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import services.UserService;
+import br.com.peopleregister.peopleregister.services.UserService;
 
 import java.text.ParseException;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/user")
 public class UserController {
 
-    @Autowired //chamar o service
+    @Autowired
     UserService userService;
 
     @GetMapping("/details/{id}")
@@ -31,7 +31,6 @@ public class UserController {
 
         return userService.save(user);
     }
-
 
     @DeleteMapping ("/delete/{id}")
     public void deleteUserById (@PathVariable("id") Long id) {

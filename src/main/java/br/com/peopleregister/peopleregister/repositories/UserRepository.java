@@ -1,6 +1,6 @@
-package repositories;
+package br.com.peopleregister.peopleregister.repositories;
 
-import models.User;
+import br.com.peopleregister.peopleregister.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

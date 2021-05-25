@@ -1,9 +1,9 @@
-package services;
+package br.com.peopleregister.peopleregister.services;
 
-import models.User;
+import br.com.peopleregister.peopleregister.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.UserRepository;
+import br.com.peopleregister.peopleregister.repositories.UserRepository;
 
 import java.util.List;
 import java.util.Optional;
