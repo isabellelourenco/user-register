@@ -11,13 +11,12 @@ public class Address {
     @Id
     @GeneratedValue
     private Long id;
-    private String address;
-    private String complement;
-    private String district;
-    private String city;
+    private String cep;
+    private String logradouro;
+    private String complemento;
+    private String bairro;
+    private String localidade;
     private String uf;
-    private String postalCode;
-    private String country;
 
     public Long getId() {
         return id;
@@ -27,36 +26,44 @@ public class Address {
         this.id = id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCep() {
+        return cep;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
-    public String getComplement() {
-        return complement;
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public void setComplement(String complement) {
-        this.complement = complement;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
-    public String getDistrict() {
-        return district;
+    public String getComplemento() {
+        return complemento;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 
-    public String getCity() {
-        return city;
+    public String getBairro() {
+        return bairro;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getLocalidade() {
+        return localidade;
+    }
+
+    public void setLocalidade(String localidade) {
+        this.localidade = localidade;
     }
 
     public String getUf() {
@@ -67,11 +74,5 @@ public class Address {
         this.uf = uf;
     }
 
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
 }
+
