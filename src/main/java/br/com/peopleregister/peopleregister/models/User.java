@@ -1,10 +1,8 @@
 package br.com.peopleregister.peopleregister.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="user")
@@ -16,6 +14,11 @@ public class User {
     private String lastName;
     private String gender;
     private Date dateOfBirth;
+    @OneToOne
+    private Address address;
+    @OneToMany(mappedBy = "user")
+    private List<Phone> phone;
+
 
     public Long getId() {
         return id;
@@ -55,5 +58,21 @@ public class User {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public List<Phone> getPhoneList() {
+        return phone;
+    }
+
+    public void setPhoneList(List<Phone> phoneList) {
+        this.phone = phoneList;
     }
 }

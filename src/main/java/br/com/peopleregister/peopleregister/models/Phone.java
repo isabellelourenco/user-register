@@ -1,9 +1,6 @@
 package br.com.peopleregister.peopleregister.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="phone")
@@ -13,6 +10,9 @@ public class Phone {
     private Long id;
     private String ddd;
     private String number;
+    @ManyToOne
+    @JoinColumn(name="user")
+    private User user;
 
     public Long getId() {
         return id;
@@ -36,5 +36,13 @@ public class Phone {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
