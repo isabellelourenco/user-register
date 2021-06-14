@@ -1,5 +1,6 @@
 package br.com.peopleregister.peopleregister.services;
 
+import br.com.peopleregister.peopleregister.models.Phone;
 import br.com.peopleregister.peopleregister.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,10 @@ public class UserService {
 
     public void deleteById (Long id) {
         userRepository.deleteById(id);
+    }
+
+    public User findById(Long id) {
+        return userRepository.findById(id).get();
     }
 
     public User updateUser (Long id, User updatedUser) {

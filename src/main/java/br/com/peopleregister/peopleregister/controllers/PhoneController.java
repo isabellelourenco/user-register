@@ -26,10 +26,10 @@ public class PhoneController {
         return phoneService.searchAll();
     }
 
-    @PostMapping("/register")
-    public Phone registerPhone (@RequestBody Phone phone) throws ParseException {
+    @PostMapping("/register/{userId}")
+    public Phone registerPhone (@PathVariable Long userId, @RequestBody Phone phone) throws ParseException {
 
-        return phoneService.save(phone);
+        return phoneService.save(phone, userId);
     }
 
     @DeleteMapping("/delete/{id}")

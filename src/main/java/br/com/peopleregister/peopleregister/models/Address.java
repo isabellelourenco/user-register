@@ -1,9 +1,7 @@
 package br.com.peopleregister.peopleregister.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="address")
@@ -11,12 +9,12 @@ public class Address {
     @Id
     @GeneratedValue
     private Long id;
-    private String zipCode;
+    private String zipcode;
     private String address;
     private String complement;
     private String district;
+    private String locale;
     private String uf;
-    private String state;
     private String country;
 
     public Long getId() {
@@ -28,11 +26,11 @@ public class Address {
     }
 
     public String getZipCode() {
-        return zipCode;
+        return zipcode;
     }
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+    public void setZipCode(String zipcode) {
+        this.zipcode = zipcode;
     }
 
     public String getAddress() {
@@ -59,20 +57,20 @@ public class Address {
         this.district = district;
     }
 
+    public String getLocale() {
+        return locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
     public String getUf() {
         return uf;
     }
 
     public void setUf(String uf) {
         this.uf = uf;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 
     public String getCountry() {

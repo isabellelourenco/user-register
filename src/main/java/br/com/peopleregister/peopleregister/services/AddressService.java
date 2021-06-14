@@ -3,10 +3,10 @@ package br.com.peopleregister.peopleregister.services;
 import br.com.peopleregister.peopleregister.models.Address;
 import br.com.peopleregister.peopleregister.models.User;
 import br.com.peopleregister.peopleregister.repositories.AddressRepository;
-import br.com.peopleregister.peopleregister.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,9 +14,17 @@ import java.util.Optional;
 public class AddressService {
     @Autowired
     AddressRepository addressRepository;
+    @Autowired
+    UserService userService;
 
-    public Address save(Address address){
-        return addressRepository.save(address);
+    public Address save(Address address, Long userId, String zipcode){
+        address.setZipCode(zipcode);
+        Address newAddress = addressRepository.save(address);
+
+        User user = userService.findById(userId);
+        user.setAddress(newAddress);
+        userService.save(user);
+        return newAddress;
     }
     public void delete(Address address){
         addressRepository.delete(address);

@@ -1,7 +1,6 @@
 package br.com.peopleregister.peopleregister.controllers;
 
 import br.com.peopleregister.peopleregister.models.Address;
-import br.com.peopleregister.peopleregister.models.User;
 import br.com.peopleregister.peopleregister.services.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,10 +25,11 @@ public class AddressController {
         return addressService.searchAll();
     }
 
-    @PostMapping("/register")
-    public Address registerUser (@RequestBody Address address) throws ParseException {
+    @PostMapping("/register/{userId}/{zipcode}")
+    public Address registerAddress (@PathVariable Long userId,
+                                    @PathVariable String zipcode, @RequestBody Address address) throws ParseException {
 
-        return addressService.save(address);
+        return addressService.save(address, userId, zipcode);
     }
 
     @DeleteMapping ("/delete/{id}")

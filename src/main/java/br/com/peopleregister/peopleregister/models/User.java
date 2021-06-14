@@ -14,10 +14,10 @@ public class User {
     private String lastName;
     private String gender;
     private Date dateOfBirth;
-    @OneToOne
+    @ManyToOne
     private Address address;
-    @OneToMany(mappedBy = "user")
-    private List<Phone> phone;
+    @ManyToOne
+    private Phone phone;
 
 
     public Long getId() {
@@ -68,11 +68,11 @@ public class User {
         this.address = address;
     }
 
-    public List<Phone> getPhoneList() {
+    public Phone getPhone() {
         return phone;
     }
 
-    public void setPhoneList(List<Phone> phoneList) {
-        this.phone = phoneList;
+    public void setPhone(Phone phone) {
+        this.phone = phone;
     }
 }

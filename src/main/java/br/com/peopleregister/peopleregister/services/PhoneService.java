@@ -1,10 +1,12 @@
 package br.com.peopleregister.peopleregister.services;
 
 import br.com.peopleregister.peopleregister.models.Phone;
+import br.com.peopleregister.peopleregister.models.User;
 import br.com.peopleregister.peopleregister.repositories.PhoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,9 +14,17 @@ import java.util.Optional;
 public class PhoneService {
     @Autowired
     PhoneRepository phoneRepository;
+    @Autowired
+    UserService userService;
 
-    public Phone save(Phone phone){
-        return phoneRepository.save(phone);
+    public Phone save(Phone phone, Long userId){
+        Phone newPhone = phoneRepository.save(phone);
+
+        User user = userService.findById(userId);
+        user.setPhone(newPhone);
+        userService.save(user);
+
+        return newPhone;
     }
     public void delete(Phone phone){
         phoneRepository.delete(phone);

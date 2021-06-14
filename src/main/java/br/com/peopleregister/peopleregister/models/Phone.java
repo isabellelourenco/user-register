@@ -1,6 +1,7 @@
 package br.com.peopleregister.peopleregister.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="phone")
@@ -10,9 +11,15 @@ public class Phone {
     private Long id;
     private String ddd;
     private String number;
-    @ManyToOne
-    @JoinColumn(name="user")
-    private User user;
+
+    public Phone(String ddd, String number) {
+        this.ddd = ddd;
+        this.number = number;
+    }
+
+    public Phone() {
+
+    }
 
     public Long getId() {
         return id;
@@ -38,11 +45,4 @@ public class Phone {
         this.number = number;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
