@@ -1,5 +1,6 @@
 package br.com.peopleregister.peopleregister.services;
 
+import br.com.peopleregister.peopleregister.models.Address;
 import br.com.peopleregister.peopleregister.models.Phone;
 import br.com.peopleregister.peopleregister.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,10 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    AddressService addressService;
+    @Autowired
+    PhoneService phoneService;
 
     public User save(User user){
         return userRepository.save(user);
@@ -29,7 +34,12 @@ public class UserService {
     }
 
     public void deleteById (Long id) {
+
+        User user = userRepository.findById(id).get();
         userRepository.deleteById(id);
+        phoneService.deleteById(user.getPhone().getId());
+        addressService.deleteById(user.getAddress().getId());
+
     }
 
     public User findById(Long id) {

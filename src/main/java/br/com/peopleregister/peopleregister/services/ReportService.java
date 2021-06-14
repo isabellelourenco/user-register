@@ -40,14 +40,14 @@ public class ReportService {
             document.open();
 
             // adicionando um parágrafo ao documento
-            document.add(new Paragraph("Relatório dos usuários cadastrados"));
+            document.add(new Paragraph("Relatório do Usuário"));
 
             // adicionando um parágrafo com fonte diferente ao arquivo
 
             document.add(new Paragraph("Nome: " + user.getName() + ", Sobrenome: " + user.getLastName() + ", Genêro: " + user.getGender(),
                     FontFactory.getFont(FontFactory.COURIER,
                     12)));
-            document.add(new Paragraph("CEP: " + address.getZipCode() + ", Endereço: " + address.getZipCode() + ", " +
+            document.add(new Paragraph("CEP: " + address.getZipCode() + ", Endereço: " + address.getAddress() + ", " +
                     "Complemento: " + address.getComplement() + ", Bairro: " + address.getDistrict() + ", Cidade: " +
                     address.getLocale() + ", UF: " + address.getUf() + ", País: " + address.getCountry(),
                     FontFactory.getFont(FontFactory.COURIER,
