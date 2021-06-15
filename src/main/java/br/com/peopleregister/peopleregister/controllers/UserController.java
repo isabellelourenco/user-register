@@ -66,16 +66,6 @@ public class UserController {
     @GetMapping(value = "/get-file/{idUser}")
     public void getFile(@PathVariable("idUser") Long idUser, HttpServletResponse response) throws IOException {
 
-//        File file = new File("src/main/resources/report/relatorio.pdf");
-//        FileInputStream fis = new FileInputStream(file);
-//        byte [] contents = new byte[(int)file.length()];
-//
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_PDF);
-//        String filename = "relatorio.pdf";
-//        headers.setContentDispositionFormData(filename, filename);
-//        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
-        //ResponseEntity<byte[]> response = new ResponseEntity<>(contents, headers, HttpStatus.OK);
         response.setContentType("application/pdf");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -84,7 +74,7 @@ public class UserController {
         String headerValue = "attachment; filename=relatorio_" + currentDateTime + ".pdf";
         response.setHeader(headerKey, headerValue);
         reportService.report(response, idUser);
-        //return response;
+
 
     }
 }

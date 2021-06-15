@@ -47,7 +47,7 @@ public class ReportService {
             document.add(new Paragraph("Nome: " + user.getName() + ", Sobrenome: " + user.getLastName() + ", Genêro: " + user.getGender(),
                     FontFactory.getFont(FontFactory.COURIER,
                     12)));
-            document.add(new Paragraph("CEP: " + address.getZipCode() + ", Endereço: " + address.getAddress() + ", " +
+            document.add(new Paragraph("CEP: " + address.getZipCode() + ", Endereço: " + address.getAddress()  + ", " +
                     "Complemento: " + address.getComplement() + ", Bairro: " + address.getDistrict() + ", Cidade: " +
                     address.getLocale() + ", UF: " + address.getUf() + ", País: " + address.getCountry(),
                     FontFactory.getFont(FontFactory.COURIER,
